@@ -1,0 +1,45 @@
+.container {
+    height: 500px;
+    width: 300px;
+    position: relative;
+    top: 100px;
+    font-size: x-large;
+    border-radius: 5px;
+}
+
+.row {
+    background-color: sandybrown;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px;
+}
+
+.num {
+    background-color: lightgray;
+}
+
+.clear, .clear_all {
+    background-color: darkgray;
+}
+
+#display {
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    padding: 5%;
+    margin-top: 3px;
+    height: 75px;
+}
+
+.ops, .equal {
+    color: white;
+    background-color: burlywood;
+}
+
+button {
+    text-align: center;
+    outline: none;
+    border-radius: 20px;
+    padding: 5%;
+    margin-top: 3px;
+}
