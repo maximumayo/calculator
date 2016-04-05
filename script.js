@@ -3,19 +3,19 @@ var storageIndex = 0;
 //document ready function
 $(document).ready(function () {
     $('.num').click(function () {
-        console.log('this is ', this);
+        //console.log('this is ', this);
         storeNum($(this).text());
     });
     $('.ops').click(function () {
-        console.log('ops button pressed');
+        //console.log('ops button pressed');
         storeOps($(this).text());
         //doMath();
     });
     $('.equal').click(function () {
-        console.log('equals was clicked');
+        //console.log('equals was clicked');
         var temp = inputStorage.length;
         for (var i = 0; i < temp; i++) {
-            console.log("input storage at: " + i + "index : " + storageIndex, inputStorage);
+            //console.log("input storage at: " + i + "index : " + storageIndex, inputStorage);
             doMath();
         }
         //doMath();
@@ -29,23 +29,23 @@ $(document).ready(function () {
     //clear conditionally!
     $('.clear').click(function () {
         smartClear();
-        console.log('inputStorage is :', inputStorage);
+        //console.log('inputStorage is :', inputStorage);
     });
 });
 
 //get number from button clicked and store in inputStorage array
 function storeNum(buttonVal) {
     if (!isNaN(inputStorage[storageIndex])) {
-        console.log('store number buttonVal: ', buttonVal);
+        //console.log('store number buttonVal: ', buttonVal);
         inputStorage[storageIndex] += buttonVal;
-        console.log('input storage: ', inputStorage);
+        //console.log('input storage: ', inputStorage);
     }
     else {
         storageIndex++;
         inputStorage[storageIndex] = '';
         inputStorage[storageIndex] = buttonVal;
 
-        console.log('input storage: ', inputStorage);
+        //console.log('input storage: ', inputStorage);
     }
     updateDisplay();
 }
@@ -54,18 +54,18 @@ function storeNum(buttonVal) {
 function storeOps(buttonVal) {
     //console.log('store ops buttonVal: ', buttonVal);
     if (isNaN(inputStorage[storageIndex])) {
-        console.log('storage index is: ' + storageIndex);
-        console.log('hit the IF!!');
+        //console.log('storage index is: ' + storageIndex);
+        //console.log('hit the IF!!');
         inputStorage[storageIndex] = '';
         inputStorage[storageIndex] = buttonVal;
     }
 
     else {
-        console.log('hit the else!!!');
+        //console.log('hit the else!!!');
         storageIndex++;
         inputStorage[storageIndex] = buttonVal;
     }
-    console.log('storage input is: ', inputStorage);
+    //console.log('storage input is: ', inputStorage);
     updateDisplay();
 }
 
@@ -83,18 +83,18 @@ function updateDisplay() {
 function doMath() {
     var num1, num2, op;
     for (var i = 0; i < inputStorage.length; i++) {
-        console.log('value is: ' + parseInt(inputStorage[i]));
+        //console.log('value is: ' + parseInt(inputStorage[i]));
         if (isNaN(inputStorage[i])) {
             op = inputStorage[i];
-            console.log(op);
+            //console.log(op);
         }
         else if (!isNaN(inputStorage[i]) && num1 == undefined) {
             num1 = parseFloat(inputStorage[i]);
-            console.log(typeof num1);
+            //console.log(typeof num1);
         }
         else if (!isNaN(inputStorage[i]) && num2 == undefined) {
             num2 = parseFloat(inputStorage[i]);
-            console.log(typeof num2);
+            //console.log(typeof num2);
         }
     }
     if (num1 != undefined && num2 == 0 && op == '/') {
@@ -105,7 +105,7 @@ function doMath() {
     }
     else if (num1 != undefined && num2 != undefined && op != undefined) {
         var result = calculate(num1, num2, op);
-        console.log('result is: ', result);
+        //console.log('result is: ', result);
         //$('#display').text(result);
         inputStorage.unshift(result);
         inputStorage.splice(1, 3);
@@ -141,21 +141,21 @@ function smartClear() {
     //var a = inputStorage.length;
     if (inputStorage.length <= 1) {
         //clear everything in storage array
-        console.log('clearing one or all condition reached');
+        //console.log('clearing one or all condition reached');
         inputStorage = [''];
         //storageIndex = 0;
         updateDisplay();
     }
     else if (inputStorage[inputStorage.length - 1] == '') {
         //erase last two items in storage array
-        console.log('clearing last two items condition reached');
+        //console.log('clearing last two items condition reached');
         inputStorage.splice(inputStorage.length - 2, (inputStorage.length - 1));
         storageIndex = 0;
         updateDisplay();
     }
     else {
         //replace last item in storage array with ''
-        console.log('replace last item with empty string condition reached');
+        //console.log('replace last item with empty string condition reached');
         inputStorage[inputStorage.length - 1] = '';
         updateDisplay();
     }
