@@ -10,3 +10,6 @@
 * This project gave me a new respect for calculators everywhere
 * Accounting for improper user input was the most difficult aspect of this project
 * Some aspects of error checking are yet to be implemented
+* Live Demo http://www.maximilianmayo.com/calculator/
+
+![screenschot of calc](/img/calcreadme.png?raw=true "screenshot of calc")
